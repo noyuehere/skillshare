@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+:root {
+  --bg-950: #030712;
+  --bg-900: #0f172a;
+  --bg-850: #1e293b;
+  --bg-800: #334155;
+  --bg-955: #020617;
+  --bg-905: #0b1329;
+  
+  --text-50: #f8fafc;
+  --text-100: #f1f5f9;
+  --text-200: #cbd5e1;
+  --text-300: #94a3b8;
+  --text-400: #64748b;
+  --text-500: #475569;
+  
+  --indigo-950: #1e1b4b;
+  --teal-950: #042f2e;
+  --blue-950: #172554;
+  --rose-950: #4c0519;
+  
+  --grid-color: rgba(255, 255, 255, 0.03);
+  color-scheme: dark;
+}
+
+:root.light {
+  --bg-950: #f8fafc;
+  --bg-900: #ffffff;
+  --bg-850: #e2e8f0;
+  --bg-800: #cbd5e1;
+  --bg-955: #f1f5f9;
+  --bg-905: #f8fafc;
+  
+  --text-50: #0f172a;
+  --text-100: #1a202c;
+  --text-200: #2d3748;
+  --text-300: #4a5568;
+  --text-400: #718096;
+  --text-500: #a0aec0;
+  
+  --indigo-950: #e0e7ff;
+  --teal-950: #ccfbf1;
+  --blue-950: #dbeafe;
+  --rose-950: #ffe4e6;
+  
+  --grid-color: rgba(15, 23, 42, 0.04);
+  color-scheme: light;
+}
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-primary: #2563EB;
+  --color-secondary: #14B8A6;
+  --color-accent: #F59E0B;
+
+  --color-slate-950: var(--bg-950);
+  --color-slate-900: var(--bg-900);
+  --color-slate-850: var(--bg-850);
+  --color-slate-800: var(--bg-800);
+  --color-slate-955: var(--bg-955);
+  --color-slate-905: var(--bg-905);
+
+  --color-slate-50: var(--text-50);
+  --color-slate-100: var(--text-50);
+  --color-slate-200: var(--text-100);
+  --color-slate-205: var(--text-100);
+  --color-slate-300: var(--text-200);
+  --color-slate-350: var(--text-200);
+  --color-slate-400: var(--text-300);
+  --color-slate-450: var(--text-300);
+  --color-slate-500: var(--text-400);
+  --color-slate-550: var(--text-400);
+  --color-slate-600: var(--text-500);
+  
+  --color-indigo-950: var(--indigo-950);
+  --color-teal-950: var(--teal-950);
+  --color-blue-950: var(--blue-950);
+  --color-rose-950: var(--rose-950);
+}
+
+/* Custom styling presets */
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-950);
+  color: var(--text-50);
+}
+
+/* Custom fade animation for counting numbers */
+@keyframes number-pulse {
+  0% { transform: scale(1); opacity: 0.9; }
+  50% { transform: scale(1.05); opacity: 1; text-shadow: 0 0 15px rgba(59, 130, 246, 0.4); }
+  100% { transform: scale(1); opacity: 0.9; }
+}
+
+.animate-number {
+  animation: number-pulse 2s infinite ease-in-out;
+}
+
+/* Custom backdrop noise/grid pattern */
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+}
+
+.bg-grid-pattern-dark {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+}
+
+/* Custom smooth glassmorphic shadows */
+.shadow-glass {
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+}
+
+.border-glass {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* High contrast dark texts on bright badges/alerts in Light Mode */
+:root.light .text-slate-950 {
+  color: #030712 !important;
+}
+
+/* Exclude buttons, badges, solid links or backgrounds from light mode white-text inversions */
+:root.light .text-white:not(button):not(a):not(.btn):not([class*="bg-"]):not([class*="from-"]):not([class*="to-"]):not(.solid-text) {
+  color: #0f172a !important;
+}
+:root.light .text-slate-50:not(button):not(a):not(.btn):not([class*="bg-"]):not([class*="from-"]):not([class*="to-"]):not(.solid-text) {
+  color: #0f172a !important;
+}
+:root.light .text-slate-100:not(button):not(a):not(.btn):not([class*="bg-"]):not([class*="from-"]):not([class*="to-"]):not(.solid-text) {
+  color: #1a202c !important;
+}
+:root.light .text-slate-200:not(button):not(a):not(.btn):not([class*="bg-"]):not([class*="from-"]):not([class*="to-"]):not(.solid-text) {
+  color: #2d3748 !important;
+}
+
+/* Base adjustment for text colors inside light overlays or special box placeholders */
+:root.light input::placeholder, 
+:root.light textarea::placeholder {
+  color: #718096 !important;
+}
+

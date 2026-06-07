@@ -1,0 +1,6 @@
+{
+  "name": "SkillShare Cooperative",
+  "description": "A startup-quality full-stack platform where community members swap skills using Unity Hours time currency instead of money.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
