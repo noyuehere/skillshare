@@ -6,7 +6,7 @@ import {defineConfig} from 'vite';
 export default defineConfig(() => {
   return {
 
-    base: "/noyuehere/",
+    base: "/skillshare/",
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
